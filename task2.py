@@ -96,15 +96,9 @@ def fight(trainer1, trainer2):
     while active_pkmn_trainer1.get_strength() > 0 and active_pkmn_trainer2.get_strength() > 0:
         if start:
             active_pkmn_trainer1.attack(active_pkmn_trainer2)
-            print("Trainer 1: " + active_pkmn_trainer1.get_kind() + "Strength: " + str(active_pkmn_trainer1.get_strength()))
-            print("Trainer 2: " + active_pkmn_trainer2.get_kind() + "Strength: " + str(active_pkmn_trainer2.get_strength()))
-
             start = 0
         else:
             active_pkmn_trainer2.attack(active_pkmn_trainer1)
-            print("Trainer 2: " + active_pkmn_trainer2.get_kind() + str(active_pkmn_trainer2.get_strength()))
-            print("Trainer 1: " + active_pkmn_trainer1.get_kind() + str(active_pkmn_trainer1.get_strength()))
-
             start = 1
 
     # release the pokemon whose strength is below 0 (only consider the ones who just fought)
@@ -142,6 +136,3 @@ ash.print_pokemon_stats()
 misty.print_pokemon_stats()
 
 fight(ash, misty)
-
-ash.print_pokemon_stats()
-misty.print_pokemon_stats()
