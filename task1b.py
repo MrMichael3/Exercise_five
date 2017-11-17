@@ -36,9 +36,9 @@ class Book:
     def get_isbn(self):
         return self.isbn
 
+    ################################################################################
+    ### test cases ###
 
-################################################################################
-  ### test cases ###
 
 book1 = Book("Harry Potter and the Philosopher's Stone", "J. K. Rowling",
              9780747532743)
