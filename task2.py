@@ -42,7 +42,7 @@ class Trainer:
         x = random.randint(1, 100)
         if x % int(Pokemon.get_catchrate(pokemon)) == 0:
             if len(self.__pokedex) < 6:
-                print(self.__name +" has catched a " + pokemon.get_kind())
+                print(self.__name + " has catched a " + pokemon.get_kind())
                 self.__pokedex.append(pokemon)
             else:
                 print(self.__name + " has already catched 6 pokemons.")
@@ -52,9 +52,11 @@ class Trainer:
     def print_pokemon_stats(self):
         if self.__pokedex == []:
             print("Trainer {0:s} has no pokemons".format(self.__name))
-        index = 1 #intuitiver mit 1 anzufangen als mit 0
+        index = 1  # intuitiver mit 1 anzufangen als mit 0
         for pokemon in self.__pokedex:
-            print("Trainer {0}'s pokemon #{1} is a {2} with a strength of {3}".format(self.get_name(),index, pokemon.get_kind(), pokemon.get_strength()))
+            print("Trainer {0}'s pokemon #{1} is a {2} with a strength of {3}".format(self.get_name(), index,
+                                                                                      pokemon.get_kind(),
+                                                                                      pokemon.get_strength()))
             index += 1
 
     def release_pokemon(self, index):
@@ -92,7 +94,7 @@ def fight(trainer1, trainer2):
 
     # the two pokemon attack each other as long as none has below 0 strength
     # make sure only one pokemon attacks at a time
-    start = bool(random.randint(0,1))
+    start = bool(random.randint(0, 1))
     while active_pkmn_trainer1.get_strength() > 0 and active_pkmn_trainer2.get_strength() > 0:
         if start:
             active_pkmn_trainer1.attack(active_pkmn_trainer2)
