@@ -4,24 +4,24 @@ import random
 ### implement class Pokemon here ###
 class Pokemon:
     def __init__(self, kind):
-        self.__kind = kind
-        self.__strength = random.randint(1, 255)
-        self.__catchrate = random.randint(1, 10)
+        self.kind = kind
+        self.strength = random.randint(1, 255)
+        self.catchrate = random.randint(1, 10)
 
     def get_kind(self):
-        return self.__kind
+        return self.kind
 
     def get_strength(self):
-        return self.__strength
+        return self.strength
 
     def get_catchrate(self):
-        return self.__catchrate
+        return self.catchrate
 
-    def _reduce_strength(self, number):
-        self.__strength -= number
+    def reduce_strength(self, number):
+        self.strength -= number
 
     def attack(self, enemy):
-        enemy._reduce_strength(1.1 * self.get_strength())
+        enemy.reduce_strength(1.1 * self.get_strength())
 
         ################################################################################
 
@@ -29,39 +29,39 @@ class Pokemon:
 ### implement class Trainer here ###
 class Trainer:
     def __init__(self, name):
-        self.__name = name
-        self.__pokedex = []
+        self.name = name
+        self.pokedex = []
 
     def get_name(self):
-        return self.__name
+        return self.name
 
     def get_pokemons(self):
-        return self.__pokedex
+        return self.pokedex
 
     def catch_pokemon(self, pokemon):
         x = random.randint(1, 100)
         if x % int(Pokemon.get_catchrate(pokemon)) == 0:
-            if len(self.__pokedex) < 6:
-                print(self.__name + " has catched a " + pokemon.get_kind())
-                self.__pokedex.append(pokemon)
+            if len(self.pokedex) < 6:
+                print(self.name + " has catched a " + pokemon.get_kind())
+                self.pokedex.append(pokemon)
             else:
-                print(self.__name + " has already catched 6 pokemons.")
+                print(self.name + " has already catched 6 pokemons.")
         else:
             print("The pokemon %s fled" % pokemon.get_kind())
 
     def print_pokemon_stats(self):
-        if self.__pokedex == []:
-            print("Trainer {0:s} has no pokemons".format(self.__name))
+        if self.pokedex == []:
+            print("Trainer {0:s} has no pokemons".format(self.name))
         index = 1  # intuitiver mit 1 anzufangen als mit 0
-        for pokemon in self.__pokedex:
+        for pokemon in self.pokedex:
             print("Trainer {0}'s pokemon #{1} is a {2} with a strength of {3}".format(self.get_name(), index,
                                                                                       pokemon.get_kind(),
                                                                                       pokemon.get_strength()))
             index += 1
 
     def release_pokemon(self, index):
-        if self.__pokedex[index] in self.__pokedex:
-            self.__pokedex.pop(index)
+        if self.pokedex[index] in self.pokedex:
+            self.pokedex.pop(index)
 
 
 ################################################################################
